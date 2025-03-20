@@ -63,10 +63,36 @@ LDR Features of LDR are as follows:
 
 
 ## PROGRAM:
-
+```
+int sensorPin = A0; // select the input pin for the LDR
+int sensorValue = 0; // variable to store the value coming from the sensor
+int led = 13;
+void setup() { // declare the ledPin as an OUTPUT:
+pinMode(led, OUTPUT);
+Serial.begin(9600); }
+void loop()
+{
+sensorValue = analogRead(sensorPin);
+Serial.println(sensorValue);
+if (sensorValue < 100)
+{
+Serial.println("LED light on");
+digitalWrite(led,HIGH);
+delay(1000);
+}
+else
+{
+digitalWrite(led,LOW);
+Serial.println("LED light off");
+delay(1000);
+}
+}
+```
 ## CIRCUIT DIAGRAM:
+![423181860-0090b123-40aa-4804-bb47-aa4016c0b731](https://github.com/user-attachments/assets/6558e016-564c-4fa7-b9fb-757876b66348)
 
 ## OUTPUT:
+![423181849-8e4d2c34-2edb-42ca-899d-9b42a8a37cd4](https://github.com/user-attachments/assets/9c1978e5-6797-45ca-878a-5587fffbe891)
 
 ## RESULT:
 Thus the automatic light controller was designed and simulated using LDR and Arduino UNO controller.
